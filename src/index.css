@@ -4,9 +4,13 @@
   padding: 0;
 }
 
-.App {
-  text-align: center;
-}
+/* .App {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+} */
 
 .title {
   font-size: 1.5em;
@@ -34,22 +38,32 @@
   transition: all 0.3s ease-in-out;
 }
 
+.users-container {
+  padding-top: 20vh;
+  background-color: white;
+}
+
 .card__user {
-  min-width: 334px;
-  min-height: 304px;
+  width: 30vw;
+  height: 20vh;
+  min-width: 300px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 36vw;
-  height: 31vh;
+
   background-color: #fff;
   border-radius: 24px;
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
   /* margin-top: -100px; */
-  margin: -150px auto;
-  top: 150px;
+  margin: -140px auto;
+  /* top: 22vh; */
+}
+
+.card__user:not(:last-child):hover {
+  transform: translateY(-140px);
 }
 
 .card__user ul {
@@ -70,14 +84,45 @@
   font-weight: bold;
 }
 
-.card__user:not(:last-child):hover {
-  transform: translateY(-140px);
-  width: 70vw;
-  /* transform: translateX(20px); */
-}
-
 .card__user span {
   color: rgb(118, 118, 118);
+}
+.card__user .card-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button__delete {
+  width: 120px;
+  margin: 10px 10px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  background-color: red;
+  color: #000;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button__edit {
+  width: 120px;
+  margin: 10px 10px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  background-color: blue;
+  color: #000;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .form__user {
@@ -123,7 +168,7 @@
   border: 1px solid #000;
 }
 
-.btn {
+.button__submit {
   min-width: 200px;
   width: 30vw;
   height: 50px;
@@ -140,21 +185,7 @@
   cursor: pointer;
 }
 
-.button {
-  margin: 10px 10px;
-  padding: 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-  background-color: #fff;
-  color: #000;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.btn-close {
+.button-close {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -165,9 +196,35 @@
   background-color: red;
   cursor: pointer;
 }
-.btn-close:hover {
+.button-close:hover {
   transform: scale(1.1);
   background-color: red;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  /* padding: 20px; */
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer ul li {
+  font-size: 0.5rem;
+  margin: 0 20px;
 }
 
 /* Modal */
@@ -200,6 +257,14 @@
 /* media querys */
 
 @media screen and (max-width: 768px) {
+  .card__user {
+    width: 80vw;
+    height: 30vh;
+    min-width: 350px;
+    margin-top: 10px;
+    translate: 0 60px;
+  }
+
   .form__user {
     width: 80vw;
     height: 90vh;
@@ -211,11 +276,20 @@
   .form__user input {
     font-size: 0.8rem;
   }
-  .btn-close {
+
+  .button__delete {
+    font-size: 0.8rem;
+    width: 100px;
+  }
+  .button__edit {
+    font-size: 0.8rem;
+    width: 100px;
+  }
+  .button-close {
     top: 40px;
     right: 20px;
   }
-  .btn-close:hover {
+  .button-close:hover {
     transform: scale(1.1);
     background-color: transparent;
   }

@@ -39,7 +39,7 @@ const FormUsers = ({
   return (
     <div className={`container-form ${isShowForm && "disable-form"}`}>
       <form className="form__user" onSubmit={handleSubmit(submitForm)}>
-        <i onClick={handleChangeShowModal} className="btn-close bx bx-x"></i>
+        <i onClick={handleChangeShowModal} className="button-close bx bx-x"></i>
         <h2>{titleForm}</h2>
         <div>
           <label htmlFor="">Email: </label>
@@ -78,7 +78,7 @@ const FormUsers = ({
           <input type="date" {...register("birthday")} />
         </div>
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="button__submit btn-primary">
             {textButton}
           </button>
         </div>

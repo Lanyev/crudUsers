@@ -1,7 +1,17 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-const UserCard = ({ user, deleteUser, setUserUpdate }) => {
+const UserCard = ({
+  user,
+  deleteUser,
+  setUserUpdate,
+  handleChangeShowModal,
+}) => {
+  const handleChangeClick = () => {
+    setUserUpdate(user);
+    handleChangeShowModal();
+  };
+
   return (
     <Card className="card__user">
       <Card.Body>
@@ -19,15 +29,15 @@ const UserCard = ({ user, deleteUser, setUserUpdate }) => {
           </li>
         </ul>
         <Button
-          className="button button__delete"
+          className="button__delete"
           onClick={() => deleteUser(user.id)}
           variant="danger"
         >
           Delete
         </Button>
         <Button
-          className="button button__edit"
-          onClick={() => setUserUpdate(user)}
+          className="button__edit"
+          onClick={handleChangeClick}
           variant="primary"
         >
           Edit

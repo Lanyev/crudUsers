@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import FormUsers from "./components/FormUsers";
 import UserCard from "./components/UserCard";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/Footer";
 
 const BASE_URL = "https://users-crud.academlo.tech/";
 
@@ -35,6 +36,7 @@ function App() {
       .then((response) => {
         console.log(response.data);
         getAllUsers();
+        handleChangeShowModal();
       })
       .catch((error) => {
         console.log(error);
@@ -62,6 +64,7 @@ function App() {
         console.log(response.data);
         getAllUsers();
         setUserUpdate();
+        handleChangeShowModal();
       })
       .catch((error) => {
         console.log(error);
@@ -81,7 +84,7 @@ function App() {
     <div className="App">
       <div className="header-container">
         <h1 className="title">CRUD Users</h1>
-        <button onClick={handleChangeShowModal} className="header__btn">
+        <button onClick={handleChangeShowModal} className="button">
           <i className="button-new">+ Add New User</i>
         </button>
       </div>
@@ -99,8 +102,12 @@ function App() {
             user={user}
             deleteUser={deleteUser}
             setUserUpdate={setUserUpdate}
+            handleChangeShowModal={handleChangeShowModal}
           />
         ))}
+      </div>
+      <div className="footer">
+        <Footer />
       </div>
     </div>
   );

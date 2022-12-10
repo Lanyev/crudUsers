@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Form, FormGroup, Button } from "react-bootstrap";
 
-const FormUsers = ({ createUser }) => {
-  const { register, handleSubmit } = useForm();
+const defaultValues = {
+  email: "",
+  password: "",
+  first_name: "",
+  last_name: "",
+  birthday: "",
+};
+
+const FormUsers = ({ createUser, userUpdate, updateUser }) => {
+  const { register, handleSubmit, reset } = useForm();
+
   const submitForm = (data) => {
-    createUser(data);
+    if (userUpdate) {
+      updateUser(userUpdate.id, data);
+    } else {
+      createUser(data);
+    }
+    reset(defaultValues);
   };
+
+  useEffect(() => {
+    if (userUpdate) {
+      reset(userUpdate);
+    }
+  }, [userUpdate]);
+
+  const titleForm = userUpdate ? "Edit User" : "New User";
+  const textButton = userUpdate ? "Edit User" : "Add New User";
 
   return (
     <form onSubmit={handleSubmit(submitForm)}>
+      <h2>{titleForm}</h2>
       <div>
         <label htmlFor="">Email: </label>
         <input type="email" {...register("email")} />
@@ -31,8 +54,8 @@ const FormUsers = ({ createUser }) => {
         <input type="date" {...register("birthday")} />
       </div>
       <div>
-        <button>
-          <span>Crear Usuario</span>
+        <button type="submit" className="btn btn-primary">
+          {textButton}
         </button>
       </div>
     </form>

@@ -9,7 +9,8 @@ const BASE_URL = "https://users-crud.academlo.tech/";
 
 function App() {
   //Estado para guardar los usuarios
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState();
+  const [userUpdate, setUserUpdate] = useState();
 
   //Funcion para obtener todos los usuarios
   const getAllUsers = () => {
@@ -24,10 +25,6 @@ function App() {
         console.log(error);
       });
   };
-  //Se obtienen todos los usuarios al cargar la pagina
-  useEffect(() => {
-    getAllUsers();
-  }, []);
 
   //Funcion para crear un usuario
   const createUser = (data) => {
@@ -55,13 +52,41 @@ function App() {
         console.log(error);
       });
   };
+  //Funcion para actualizar un usuario
+  const updateUser = (id, data) => {
+    const URL = `${BASE_URL}users/${id}/`;
+    axios
+      .patch(URL, data)
+      .then((response) => {
+        console.log(response.data);
+        getAllUsers();
+        setUserUpdate();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  //Se obtienen todos los usuarios al cargar la pagina
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   return (
     <div className="App">
       <h1>Users CRUD</h1>
-      <FormUsers createUser={createUser} />
+      <FormUsers
+        createUser={createUser}
+        userUpdate={userUpdate}
+        updateUser={updateUser}
+      />
       {users?.map((user) => (
-        <UserCard key={user.id} user={user} />
+        <UserCard
+          key={user.id}
+          user={user}
+          deleteUser={deleteUser}
+          setUserUpdate={setUserUpdate}
+        />
       ))}
     </div>
   );

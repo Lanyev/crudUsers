@@ -1,16 +1,26 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user, deleteUser, setUserUpdate }) => {
   return (
     <article>
       <h2>{`${user.first_name} ${user.last_name}`}</h2>
       <ul>
-        <li>{user.email}</li>
-        <li>{user.birthday}</li>
+        <li>
+          <span>Email: </span>
+          {user.email}
+        </li>
+        <li>
+          <span>Birthdate: </span>
+          {user.birthday}
+        </li>
       </ul>
-      <Button variant="primary">Edit</Button>
-      <Button variant="danger">Delete</Button>
+      <Button onClick={() => deleteUser(user.id)} variant="danger">
+        Delete
+      </Button>
+      <Button onClick={() => setUserUpdate(user)} variant="primary">
+        Edit
+      </Button>
     </article>
   );
 };

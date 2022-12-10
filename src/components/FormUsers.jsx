@@ -31,23 +31,39 @@ const FormUsers = ({ createUser, userUpdate, updateUser }) => {
   const textButton = userUpdate ? "Edit User" : "Add New User";
 
   return (
-    <form onSubmit={handleSubmit(submitForm)}>
+    <form className="form__user" onSubmit={handleSubmit(submitForm)}>
       <h2>{titleForm}</h2>
       <div>
         <label htmlFor="">Email: </label>
-        <input type="email" {...register("email")} />
+        <input
+          type="email"
+          {...register("email")}
+          placeholder="Enter your Email"
+        />
       </div>
       <div>
         <label htmlFor="">Password: </label>
-        <input type="password" {...register("password")} />
+        <input
+          type="password"
+          {...register("password")}
+          placeholder="Enter your Password"
+        />
       </div>
       <div>
         <label htmlFor="">First Name: </label>
-        <input type="text" {...register("first_name")} />
+        <input
+          type="text"
+          {...register("first_name")}
+          placeholder="Enter your First Name"
+        />
       </div>
       <div>
         <label htmlFor="">Last Name: </label>
-        <input type="text" {...register("last_name")} />
+        <input
+          type="text"
+          {...register("last_name")}
+          placeholder="Enter your Last Name"
+        />
       </div>
       <div>
         <label htmlFor="">Birth Date: </label>

@@ -12,6 +12,14 @@ function App() {
   const [users, setUsers] = useState();
   const [userUpdate, setUserUpdate] = useState();
 
+  // Estado para controlar la expansión y colapso de los cards
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Función para manejar el clic en el botón de expansión/colapso
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   //Funcion para obtener todos los usuarios
   const getAllUsers = () => {
     const URL = `${BASE_URL}users/`;
@@ -74,12 +82,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Users CRUD</h1>
+      <h1 className="title">Users CRUD</h1>
       <FormUsers
         createUser={createUser}
         userUpdate={userUpdate}
         updateUser={updateUser}
       />
+
       {users?.map((user) => (
         <UserCard
           key={user.id}

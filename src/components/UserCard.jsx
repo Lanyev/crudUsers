@@ -1,27 +1,37 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 const UserCard = ({ user, deleteUser, setUserUpdate }) => {
   return (
-    <article>
-      <h2>{`${user.first_name} ${user.last_name}`}</h2>
-      <ul>
-        <li>
-          <span>Email: </span>
-          {user.email}
-        </li>
-        <li>
-          <span>Birthdate: </span>
-          {user.birthday}
-        </li>
-      </ul>
-      <Button onClick={() => deleteUser(user.id)} variant="danger">
-        Delete
-      </Button>
-      <Button onClick={() => setUserUpdate(user)} variant="primary">
-        Edit
-      </Button>
-    </article>
+    <Card className="card__user">
+      <Card.Body>
+        <Card.Title className="user__title">{`${user.first_name} ${user.last_name}`}</Card.Title>
+        <ul>
+          <li>
+            <span>Email: </span>
+            {user.email}
+          </li>
+          <li>
+            <span>Birthdate: </span>
+            {user.birthday}
+          </li>
+        </ul>
+        <Button
+          className="button button__delete"
+          onClick={() => deleteUser(user.id)}
+          variant="danger"
+        >
+          Delete
+        </Button>
+        <Button
+          className="button button__edit"
+          onClick={() => setUserUpdate(user)}
+          variant="primary"
+        >
+          Edit
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 

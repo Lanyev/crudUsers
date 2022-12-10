@@ -5,7 +5,9 @@ const UserCard = ({ user, deleteUser, setUserUpdate }) => {
   return (
     <Card className="card__user">
       <Card.Body>
-        <Card.Title className="user__title">{`${user.first_name} ${user.last_name}`}</Card.Title>
+        <h2>
+          <Card.Title>{`${user.first_name} ${user.last_name}`}</Card.Title>
+        </h2>
         <ul>
           <li>
             <span>Email: </span>

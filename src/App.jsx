@@ -11,14 +11,7 @@ function App() {
   //Estado para guardar los usuarios
   const [users, setUsers] = useState();
   const [userUpdate, setUserUpdate] = useState();
-
-  // Estado para controlar la expansión y colapso de los cards
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  // Función para manejar el clic en el botón de expansión/colapso
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const [isShowForm, setIsShowForm] = useState(false);
 
   //Funcion para obtener todos los usuarios
   const getAllUsers = () => {
@@ -75,6 +68,10 @@ function App() {
       });
   };
 
+  const handleChangeShowModal = () => {
+    setIsShowForm(!isShowForm);
+  };
+
   //Se obtienen todos los usuarios al cargar la pagina
   useEffect(() => {
     getAllUsers();
@@ -82,21 +79,29 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">Users CRUD</h1>
+      <div className="header-container">
+        <h1 className="title">CRUD Users</h1>
+        <button onClick={handleChangeShowModal} className="header__btn">
+          <i className="button-new">+ Add New User</i>
+        </button>
+      </div>
       <FormUsers
         createUser={createUser}
         userUpdate={userUpdate}
         updateUser={updateUser}
+        isShowForm={isShowForm}
+        handleChangeShowModal={handleChangeShowModal}
       />
-
-      {users?.map((user) => (
-        <UserCard
-          key={user.id}
-          user={user}
-          deleteUser={deleteUser}
-          setUserUpdate={setUserUpdate}
-        />
-      ))}
+      <div className="users-container">
+        {users?.map((user) => (
+          <UserCard
+            key={user.id}
+            user={user}
+            deleteUser={deleteUser}
+            setUserUpdate={setUserUpdate}
+          />
+        ))}
+      </div>
     </div>
   );
 }

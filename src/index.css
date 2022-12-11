@@ -1,7 +1,9 @@
 * {
+  max-width: 1000px;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  /* display: block; */
+  text-align: center;
 }
 
 /* .App {
@@ -45,7 +47,7 @@
 
 .card__user {
   width: 30vw;
-  height: 20vh;
+  height: 166px;
   min-width: 300px;
   min-height: 100px;
   display: flex;
@@ -58,12 +60,12 @@
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
   /* margin-top: -100px; */
-  margin: -140px auto;
+  margin: -70px auto;
   /* top: 22vh; */
 }
 
 .card__user:not(:last-child):hover {
-  transform: translateY(-140px);
+  transform: translateY(-50px);
 }
 
 .card__user ul {
@@ -72,7 +74,7 @@
 }
 
 .card__user ul li {
-  font-size: 1.2em;
+  font-size: 1rem;
 
   margin: 0;
   padding: 0;
@@ -88,7 +90,7 @@
   color: rgb(118, 118, 118);
 }
 .card__user .card-title {
-  font-size: 2rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
@@ -96,7 +98,7 @@
 }
 
 .button__delete {
-  width: 120px;
+  width: 100px;
   margin: 10px 10px;
   padding: 0 20px;
   border: 1px solid #ccc;
@@ -104,14 +106,14 @@
   outline: none;
   transition: all 0.3s ease-in-out;
   background-color: red;
-  color: #000;
-  font-size: 1.2em;
+  color: #fff;
+  font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
 }
 
 .button__edit {
-  width: 120px;
+  width: 100px;
   margin: 10px 10px;
   padding: 0 20px;
   border: 1px solid #ccc;
@@ -119,8 +121,8 @@
   outline: none;
   transition: all 0.3s ease-in-out;
   background-color: blue;
-  color: #000;
-  font-size: 1.2em;
+  color: #fff;
+  font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -223,8 +225,11 @@
 }
 
 .footer ul li {
-  font-size: 0.5rem;
-  margin: 0 20px;
+  font-size: 10px;
+  padding: 10px;
+  text-align: left;
+  display: block;
+  height: 10px;
 }
 
 /* Modal */
@@ -256,10 +261,10 @@
 
 /* media querys */
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 400px) {
   .card__user {
     width: 80vw;
-    height: 30vh;
+    height: 180px;
     min-width: 350px;
     margin-top: 10px;
     translate: 0 60px;

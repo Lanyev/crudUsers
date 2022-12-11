@@ -1,17 +1,18 @@
-import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FormUsers from "./components/FormUsers";
 import UserCard from "./components/UserCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
-
+// URL base de la API
 const BASE_URL = "https://users-crud.academlo.tech/";
 
 function App() {
   //Estado para guardar los usuarios
   const [users, setUsers] = useState();
+  // Estado para guardar la información del usuario que se está actualizando
   const [userUpdate, setUserUpdate] = useState();
+  // Estado para controlar si se muestra el formulario para crear o actualizar usuarios
   const [isShowForm, setIsShowForm] = useState(false);
 
   //Funcion para obtener todos los usuarios
@@ -70,9 +71,14 @@ function App() {
         console.log(error);
       });
   };
-
+  // Función para cambiar el estado de si se muestra el formulario para crear o actualizar usuarios
   const handleChangeShowModal = () => {
     setIsShowForm(!isShowForm);
+  };
+  // Función para mostrar el formulario para crear un usuario nuevo
+  const handleClickNewUser = () => {
+    setUserUpdate();
+    handleChangeShowModal();
   };
 
   //Se obtienen todos los usuarios al cargar la pagina
@@ -84,7 +90,7 @@ function App() {
     <div className="App">
       <div className="header-container">
         <h1 className="title">CRUD Users</h1>
-        <button onClick={handleChangeShowModal} className="button">
+        <button onClick={handleClickNewUser} className="button">
           <i className="button-new">+ Add New User</i>
         </button>
       </div>

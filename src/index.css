@@ -293,6 +293,7 @@
   background-color: #000;
   color: #fff;
 }
+
 .night .card__user {
   background-color: rgb(45, 45, 45);
   color: #fff;
@@ -303,6 +304,14 @@
   background-color: #000;
   color: #fff;
   border: 1px solid #fff;
+}
+
+.night .header-container {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.night .footer {
+  color: #000;
 }
 
 /* media querys */

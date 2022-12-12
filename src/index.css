@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+html {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23cccccc' fill-opacity='0.15'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
 /* .App {
   position: fixed;
   top: 0px;
@@ -21,13 +26,20 @@
 }
 
 .header-container {
+  position: fixed;
+  top: 0px;
+  bottom: 90vh;
+  left: 0px;
+  right: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 999;
 }
+
 .header-container button {
   padding: 10px;
   border: none;
@@ -42,7 +54,10 @@
 
 .users-container {
   padding-top: 20vh;
-  background-color: white;
+  /* background-color: white; */
+  /* background-color: transparent; */
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23cccccc' fill-opacity='0.15'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .card__user {
@@ -54,14 +69,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background-color: #fff;
   border-radius: 24px;
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
   /* margin-top: -100px; */
-  margin: -70px auto;
-  /* top: 22vh; */
+  margin: -90px auto;
+  top: 20px;
 }
 
 .card__user:not(:last-child):hover {
@@ -188,6 +202,9 @@
 }
 
 .button-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 20px;
   right: 30px;
@@ -196,6 +213,7 @@
   border: none;
   outline: none;
   background-color: red;
+  color: #fff;
   cursor: pointer;
 }
 .button-close:hover {
@@ -236,9 +254,9 @@
 
 .container-form {
   position: fixed;
-  background-color: #0003;
+  /* background-color: #0003; */
   backdrop-filter: blur(2px);
-  z-index: 2;
+  z-index: 1000;
   top: 0;
   min-height: 100vh;
   right: 0;
@@ -261,13 +279,14 @@
 
 /* media querys */
 
-@media screen and (min-width: 400px) {
+@media screen and (max-width: 400px) {
   .card__user {
     width: 80vw;
     height: 180px;
     min-width: 350px;
     margin-top: 10px;
     translate: 0 60px;
+    top: -80px;
   }
 
   .form__user {
@@ -276,10 +295,10 @@
     min-width: 350px;
   }
   .form__user label {
-    font-size: 1rem;
+    font-size: 14px;
   }
   .form__user input {
-    font-size: 0.8rem;
+    font-size: 10px;
   }
 
   .button__delete {

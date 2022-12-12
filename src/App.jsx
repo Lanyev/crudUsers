@@ -15,7 +15,7 @@ function App() {
   // Estado para controlar si se muestra el formulario para crear o actualizar usuarios
   const [isShowForm, setIsShowForm] = useState(false);
   // Estado para agregar el modo noche o día
-  const [mode, setMode] = useState("night");
+  const [mode, setMode] = useState("day");
 
   //Funcion para obtener todos los usuarios
   const getAllUsers = () => {

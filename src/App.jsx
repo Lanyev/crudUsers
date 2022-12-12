@@ -89,39 +89,41 @@ function App() {
   }, []);
 
   return (
-    <div className={mode}>
-      <div className="header-container">
-        <h1 className="title">CRUD Users</h1>
-        <button onClick={handleClickNewUser} className="button">
-          <i className="button-new">+ Add New User</i>
-        </button>
-      </div>
-      <button
-        className={`button__day-night ${mode === "night" ? "night" : "day"}`}
-        onClick={() => setMode(mode === "night" ? "day" : "night")}
-      >
-        {mode === "night" ? "🌑" : "☀️"}
-      </button>
-      <FormUsers
-        createUser={createUser}
-        userUpdate={userUpdate}
-        updateUser={updateUser}
-        isShowForm={isShowForm}
-        handleChangeShowModal={handleChangeShowModal}
-      />
-      <div className="users-container">
-        {users?.map((user) => (
-          <UserCard
-            key={user.id}
-            user={user}
-            deleteUser={deleteUser}
-            setUserUpdate={setUserUpdate}
-            handleChangeShowModal={handleChangeShowModal}
-          />
-        ))}
-      </div>
-      <div className="footer">
-        <Footer />
+    <div className="home">
+      <div className={mode}>
+        <div className="header-container">
+          <h1 className="title">CRUD Users</h1>
+          <button onClick={handleClickNewUser} className="button">
+            <i className="button-new">+ Add New User</i>
+          </button>
+        </div>
+        {/* <button
+          className={`button__day-night ${mode === "night" ? "night" : "day"}`}
+          onClick={() => setMode(mode === "night" ? "day" : "night")}
+        >
+          {mode === "night" ? "🌑" : "☀️"}
+        </button> */}
+        <FormUsers
+          createUser={createUser}
+          userUpdate={userUpdate}
+          updateUser={updateUser}
+          isShowForm={isShowForm}
+          handleChangeShowModal={handleChangeShowModal}
+        />
+        <div className="users-container">
+          {users?.map((user) => (
+            <UserCard
+              key={user.id}
+              user={user}
+              deleteUser={deleteUser}
+              setUserUpdate={setUserUpdate}
+              handleChangeShowModal={handleChangeShowModal}
+            />
+          ))}
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </div>
   );

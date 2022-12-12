@@ -2,22 +2,8 @@
   max-width: 1000px;
   box-sizing: border-box;
   margin: 0 auto;
-  /* display: block; */
   text-align: center;
 }
-
-html {
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23cccccc' fill-opacity='0.15'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* .App {
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-} */
 
 .title {
   font-size: 1.5em;
@@ -36,6 +22,7 @@ html {
   align-items: center;
   padding: 10px;
   background-color: transparent;
+  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
@@ -54,10 +41,6 @@ html {
 
 .users-container {
   padding-top: 20vh;
-  /* background-color: white; */
-  /* background-color: transparent; */
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23cccccc' fill-opacity='0.15'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .card__user {
@@ -73,9 +56,8 @@ html {
   border-radius: 24px;
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
-  /* margin-top: -100px; */
-  margin: -90px auto;
-  top: 20px;
+  margin: -70px auto;
+  top: 30px;
 }
 
 .card__user:not(:last-child):hover {
@@ -277,6 +259,52 @@ html {
   margin: 10px;
 }
 
+/* Modo Noche y Dia */
+
+.button__day-night {
+  position: absolute;
+  top: 12vh;
+  right: 24vw;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  /* background-color: #fff; */
+  /* color: #000; */
+  cursor: pointer;
+}
+
+.day {
+  background-color: #fff;
+  color: #000;
+}
+
+.day .card__user {
+  background-color: white;
+  color: black;
+}
+
+.day .form__user {
+  background-color: #fff;
+  color: #000;
+}
+
+.night {
+  background-color: #000;
+  color: #fff;
+}
+.night .card__user {
+  background-color: rgb(45, 45, 45);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.night .form__user {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
 /* media querys */
 
 @media screen and (max-width: 400px) {
@@ -287,6 +315,18 @@ html {
     margin-top: 10px;
     translate: 0 60px;
     top: -80px;
+  }
+  .button__day-night {
+    position: absolute;
+    top: 12vh;
+    right: 5vw;
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    /* background-color: #fff; */
+    /* color: #000; */
+    cursor: pointer;
   }
 
   .form__user {

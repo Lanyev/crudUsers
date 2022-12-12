@@ -14,6 +14,8 @@ function App() {
   const [userUpdate, setUserUpdate] = useState();
   // Estado para controlar si se muestra el formulario para crear o actualizar usuarios
   const [isShowForm, setIsShowForm] = useState(false);
+  // Estado para agregar el modo noche o día
+  const [mode, setMode] = useState("night");
 
   //Funcion para obtener todos los usuarios
   const getAllUsers = () => {
@@ -87,13 +89,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className={mode}>
       <div className="header-container">
         <h1 className="title">CRUD Users</h1>
         <button onClick={handleClickNewUser} className="button">
           <i className="button-new">+ Add New User</i>
         </button>
       </div>
+      <button
+        className={`button__day-night ${mode === "night" ? "night" : "day"}`}
+        onClick={() => setMode(mode === "night" ? "day" : "night")}
+      >
+        {mode === "night" ? "🌑" : "☀️"}
+      </button>
       <FormUsers
         createUser={createUser}
         userUpdate={userUpdate}

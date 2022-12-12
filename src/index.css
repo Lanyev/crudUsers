@@ -264,9 +264,9 @@
 .button__day-night {
   position: absolute;
   top: 12vh;
-  right: 24vw;
-  width: 20px;
-  height: 20px;
+  right: 10vw;
+  /* width: 0px; */
+  /* height: 20px; */
   border: none;
   outline: none;
   /* background-color: #fff; */
@@ -365,5 +365,29 @@
   .button-close:hover {
     transform: scale(1.1);
     background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .button__day-night {
+    right: 22vw;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .button__day-night {
+    right: 25vw;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .button__day-night {
+    right: 30vw;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .button__day-night {
+    right: 33vw;
   }
 }

@@ -53,7 +53,7 @@
 }
 
 .users-container {
-  max-width: 1000px;
+  width: 100%;
 }
 
 .card__user {

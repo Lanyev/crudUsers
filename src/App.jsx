@@ -97,12 +97,12 @@ function App() {
             <i className="button-new">+ Add New User</i>
           </button>
         </div>
-        <button
+        {/* <button
           className={`button__day-night ${mode === "night" ? "night" : "day"}`}
           onClick={() => setMode(mode === "night" ? "day" : "night")}
         >
           {mode === "night" ? "🌑" : "☀️"}
-        </button>
+        </button> */}
         <FormUsers
           createUser={createUser}
           userUpdate={userUpdate}

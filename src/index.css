@@ -211,6 +211,7 @@
   background-color: red;
   color: #fff;
   cursor: pointer;
+  animation: Container-close 0.5s ease-in-out forwards;
 }
 .button-close:hover {
   transform: scale(1.1);
@@ -262,7 +263,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* display: none; */
+  animation: Container 0.5s ease-in-out forwards;
 }
 
 .disable-form {
@@ -346,6 +347,24 @@
 
 .night .footer {
   background-color: #000;
+}
+
+@keyframes Container {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes Container-close {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* media querys */

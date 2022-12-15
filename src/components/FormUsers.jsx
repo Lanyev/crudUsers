@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 const defaultValues = {
@@ -16,6 +16,22 @@ const FormUsers = ({
   isShowForm,
   handleChangeShowModal,
 }) => {
+  const containerRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        // handleChangeShowModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [containerRef, handleChangeShowModal]);
+
   const { register, handleSubmit, reset } = useForm();
 
   const submitForm = (data) => {
@@ -37,7 +53,10 @@ const FormUsers = ({
   }, [userUpdate]);
 
   return (
-    <div className={`container-form ${isShowForm ? "" : "disable-form"}`}>
+    <div
+      className={`container-form ${isShowForm ? "" : "disable-form"}`}
+      ref={containerRef}
+    >
       <form className="form__user" onSubmit={handleSubmit(submitForm)}>
         <i onClick={handleChangeShowModal} className="button-close bx bx-x">
           X
@@ -76,7 +95,7 @@ const FormUsers = ({
           />
         </div>
         <div>
-          <label htmlFor="">Birth Date: </label>
+          <label htmlFor="">Birth Date </label>
           <input type="date" {...register("birthday")} />
         </div>
         <div>
